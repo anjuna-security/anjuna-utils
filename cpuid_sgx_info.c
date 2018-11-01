@@ -12,7 +12,7 @@ enum sgx_status {
     ENABLED = 0,
     DISABLED_IN_BIOS,
     NOT_AVAILABLE_ON_CPU,
-}
+};
 
 static inline void native_cpuid(unsigned int *eax, unsigned int *ebx,
                                 unsigned int *ecx, unsigned int *edx)
@@ -73,7 +73,7 @@ int main() {
         native_cpuid(&eax, &ebx, &ecx, &edx);
         switch (eax & 0xF) {
             case 0:
-                printf("Invalid sub-leaf\n");
+                printf("No more EPC sections (invalid subleaf)\n");
                 sub_leaf_valid = 0;
                 break;
             case 1:
