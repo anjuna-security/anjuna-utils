@@ -60,7 +60,6 @@
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2018-11-01",
       "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
       "sku": {
         "name": "[variables('storageAccountType')]"
       },
@@ -71,7 +70,6 @@
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2018-11-01",
       "name": "[variables('publicIPAddressName')]",
-      "location": "[parameters('location')]",
       "properties": {
         "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
       }
@@ -80,7 +78,6 @@
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2018-11-01",
       "name": "[variables('virtualNetworkName')]",
-      "location": "[parameters('location')]",
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
@@ -101,7 +98,6 @@
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2018-11-01",
       "name": "[variables('nicName')]",
-      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
         "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
@@ -127,7 +123,6 @@
       "type": "Microsoft.Compute/virtualMachines",
       "apiVersion": "2018-10-01",
       "name": "[variables('vmName')]",
-      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
