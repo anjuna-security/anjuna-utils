@@ -43,13 +43,6 @@
       "metadata": {
         "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
       }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "eastus",
-      "metadata": {
-        "description": "Location for all resources."
-      }
     }
   },
   "variables": {
