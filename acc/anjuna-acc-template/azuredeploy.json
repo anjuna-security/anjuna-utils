@@ -41,6 +41,7 @@
     "publicIPAddressType": "Dynamic",
     "vmName": "AnjunaAccVM",
     "vmSize": "Standard_DC2s",
+    "location": "[resourceGroup().location]",
     "virtualNetworkName": "MyVNET",
     "linuxConfiguration": {
       "disablePasswordAuthentication": true,
