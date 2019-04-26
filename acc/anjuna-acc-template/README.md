@@ -1,9 +1,9 @@
 # Very simple deployment of a Linux VM
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fbitbucket.org%2Fanjunasec%2Fanjuna-utils%2Fraw%2F2d0b4324fb85816fc4ccf3d9e61f4e44da3a18ef%2Facc%2Fanjuna-acc-template%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fbitbucket.org%2Fanjunasec%2Fanjuna-utils%2Fraw%2FHEAD%2Facc%2Fanjuna-acc-template%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fbitbucket.org%2Fanjunasec%2Fanjuna-utils%2Fraw%2F2d0b4324fb85816fc4ccf3d9e61f4e44da3a18ef%2Facc%2Fanjuna-acc-template%2Fazuredeploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fbitbucket.org%2Fanjunasec%2Fanjuna-utils%2Fraw%2FHEAD%2Facc%2Fanjuna-acc-template%2Fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
