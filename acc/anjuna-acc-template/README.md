@@ -7,7 +7,7 @@
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
-This template allows you to deploy an Azure Confidential Computing Ubuntu VM using a few different options for the Ubuntu Linux version, using the latest patched version. This will deploy a A1 size VM in the resource group location and return the FQDN of the VM.
+This template allows you to deploy an Azure Confidential Computing Ubuntu VM using a few different options for the Ubuntu Linux version, using the latest patched version. This will deploy a DC2 VM in the resource group location.
 
 If you are new to Azure virtual machines, see:
 
