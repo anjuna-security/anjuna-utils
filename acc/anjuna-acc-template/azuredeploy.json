@@ -26,6 +26,10 @@
       "metadata": {
         "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
       }
+    },
+    "vmName": {
+      "type": "string",
+      "defaultValue": "AnjunaAccVM"
     }
   },
   "variables": {
@@ -39,7 +43,7 @@
     "storageAccountType": "Standard_LRS",
     "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
-    "vmName": "AnjunaAccVM",
+    "vmName": "[parameters('vmName')]",
     "vmSize": "Standard_DC2s",
     "location": "[resourceGroup().location]",
     "virtualNetworkName": "MyVNET",
@@ -177,13 +181,6 @@
     }
   ],
   "outputs": {
-    "hostname": {
-      "type": "string",
-      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]"
-    },
-    "sshCommand": {
-      "type": "string",
-      "value": "[concat('ssh ', parameters('adminUsername'), '@', reference(variables('publicIPAddressName')).dnsSettings.fqdn)]"
-    }
+    
   }
 }
