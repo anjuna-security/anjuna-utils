@@ -1,12 +1,8 @@
-------------------------
-check-sgx-caps
-------------------------
+# check-sgx-caps
 The project uses the Intel SGX SDK to compile a utility that checks if the
 host is capable of running SGX applications.
 
-------------------------------------
-How to Build/Execute the utility
-------------------------------------
+## How to Build/Execute the utility
 1. Install Intel(R) SGX SDK for Linux* OS
 2. Make sure your environment is set:
     $ source ${sgx-sdk-install-path}/environment
