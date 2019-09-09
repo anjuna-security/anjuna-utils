@@ -56,7 +56,7 @@
     "vmSize": "Standard_DC4s",
     "virtualNetworkName": "MyVNET",
     "linuxConfiguration": {
-      "disablePasswordAuthentication": "[not(equals(parameters('sshCredentials').authenticationType, 'password'))]",
+      "disablePasswordAuthentication": "[not(equals(parameters('authenticationType'), 'password'))]",
       "ssh": {
         "publicKeys": [
           {
