@@ -27,7 +27,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "AnjunaAccVM"
+      "defaultValue": "Anjuna-ACC-VM"
     }
   },
   "variables": {
@@ -36,7 +36,7 @@
     "imageOffer": "UbuntuServer",
     "nicName": "myVMNic",
     "addressPrefix": "10.0.0.0/16",
-    "subnetName": "Subnet",
+    "subnetName": "[concat(parameters('vmName'),'-subnet')]",
     "subnetPrefix": "10.0.0.0/24",
     "storageAccountType": "Standard_LRS",
     "publicIPAddressName": "myPublicIP",
