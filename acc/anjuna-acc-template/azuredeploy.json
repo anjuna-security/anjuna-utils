@@ -54,7 +54,6 @@
     "publicIPAddressType": "Dynamic",
     "vmName": "[parameters('vmName')]",
     "vmSize": "Standard_DC4s",
-    "location": "[resourceGroup().location]",
     "virtualNetworkName": "MyVNET",
     "linuxConfiguration": {
       "disablePasswordAuthentication": "[not(equals(parameters('sshCredentials').authenticationType, 'password'))]",
@@ -74,7 +73,7 @@
       "apiVersion": "2018-11-01",
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "location": "[variables('location')]",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "[variables('storageAccountType')]"
       },
@@ -85,7 +84,7 @@
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2018-11-01",
       "name": "[variables('publicIPAddressName')]",
-      "location": "[variables('location')]",
+      "location": "[parameters('location')]",
       "properties": {
         "publicIPAllocationMethod": "[variables('publicIPAddressType')]"
       }
@@ -94,7 +93,7 @@
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2018-11-01",
       "name": "[variables('virtualNetworkName')]",
-      "location": "[variables('location')]",
+      "location": "[parameters('location')]",
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
@@ -115,7 +114,7 @@
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2018-11-01",
       "name": "[variables('nicName')]",
-      "location": "[variables('location')]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
         "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
@@ -141,7 +140,7 @@
       "type": "Microsoft.Compute/virtualMachines",
       "apiVersion": "2018-10-01",
       "name": "[variables('vmName')]",
-      "location": "[variables('location')]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
