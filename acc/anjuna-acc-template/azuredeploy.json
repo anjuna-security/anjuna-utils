@@ -8,16 +8,16 @@
         "description": "User name for the Virtual Machine."
       }
     },
-	"authenticationType": {
-		"type": "string",
-		"defaultValue": "sshPublicKey",
-		"allowedValues": [
-			"sshPublicKey",
-			"password"
-		],
-		"metadata": {
-		  "description": "Type of authentication to use for logging into the virtual machine. SSH key is recommended."
-		}
+    "authenticationType": {
+	  "type": "string",
+	  "defaultValue": "sshPublicKey",
+	  "allowedValues": [
+	    "sshPublicKey",
+		"password"
+	  ],
+	  "metadata": {
+	    "description": "Type of authentication to use for logging into the virtual machine. SSH key is recommended."
+	  }
 	},
     "sshCredentials": {
       "type": "securestring",
