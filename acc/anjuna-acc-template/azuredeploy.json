@@ -8,10 +8,10 @@
         "description": "User name for the Virtual Machine."
       }
     },
-    "sshPubKey": {
-      "type": "string",
+    "sshCredentials": {
+      "type": "secureobject",
       "metadata": {
-        "description": "SSH Public Key."
+        "description": "SSH credentials"
       }
     },
     "ubuntuOSVersion": {
@@ -46,12 +46,12 @@
     "location": "[resourceGroup().location]",
     "virtualNetworkName": "MyVNET",
     "linuxConfiguration": {
-      "disablePasswordAuthentication": true,
+      "disablePasswordAuthentication": "[not(equals(parameters('sshCredentials').authenticationType, 'password'))]",
       "ssh": {
         "publicKeys": [
           {
             "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
-            "keyData": "[parameters('sshPubKey')]"
+            "keyData": "[parameters('sshCredentials').sshPublicKey]"
           }
         ]
       }
