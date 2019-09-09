@@ -8,10 +8,21 @@
         "description": "User name for the Virtual Machine."
       }
     },
+	"authenticationType": {
+		"type": "string",
+		"defaultValue": "sshPublicKey",
+		"allowedValues": [
+			"sshPublicKey",
+			"password"
+		],
+		"metadata": {
+		  "description": "Type of authentication to use for logging into the virtual machine. SSH key is recommended."
+		}
+	},
     "sshCredentials": {
-      "type": "secureobject",
+      "type": "securestring",
       "metadata": {
-        "description": "SSH credentials"
+        "description": "SSH key or password for the virtual machine. SSH key is recommended."
       }
     },
     "ubuntuOSVersion": {
@@ -51,7 +62,7 @@
         "publicKeys": [
           {
             "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
-            "keyData": "[parameters('sshCredentials').sshPublicKey]"
+            "keyData": "[parameters('sshCredentials')]"
           }
         ]
       }
@@ -142,8 +153,8 @@
         "osProfile": {
           "computerName": "[variables('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
-		  "adminPassword": "[parameters('sshCredentials').password]",
-          "linuxConfiguration": "[variables('linuxConfiguration')]"
+		  "adminPassword": "[parameters('sshCredentials')]",
+          "linuxConfiguration": "[if(equals(parameters('authenticationType'),'password'), json('null'), variables('linuxConfiguration'))]"
         },
         "storageProfile": {
           "imageReference": {

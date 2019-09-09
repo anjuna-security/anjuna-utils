@@ -3,13 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "GEN-UNIQUE"
+      "value": null
     },
     "adminPasswordOrKey": {
-      "value": "GEN-SSH-PUB-KEY"
+      "value": null
     },
     "dnsLabelPrefix": {
-      "value": "GEN-UNIQUE"
-    }
+      "value": null
+    },
+	"location": {
+	  "value": "[resourceGroup().location]"
+	}
   }
 }
