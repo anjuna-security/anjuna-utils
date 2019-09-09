@@ -42,7 +42,7 @@
     "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
     "vmName": "[parameters('vmName')]",
-    "vmSize": "Standard_DC2s",
+    "vmSize": "Standard_DC4s",
     "location": "[resourceGroup().location]",
     "virtualNetworkName": "MyVNET",
     "linuxConfiguration": {
