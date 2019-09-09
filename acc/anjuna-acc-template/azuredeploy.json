@@ -142,6 +142,7 @@
         "osProfile": {
           "computerName": "[variables('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
+		  "adminPassword": "[parameters('sshCredentials').password]",
           "linuxConfiguration": "[variables('linuxConfiguration')]"
         },
         "storageProfile": {
