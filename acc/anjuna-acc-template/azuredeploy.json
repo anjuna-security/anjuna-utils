@@ -60,8 +60,8 @@
   },
   "resources": [
     {
-      "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2018-11-01",
+      "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
       "location": "[variables('location')]",
       "sku": {
