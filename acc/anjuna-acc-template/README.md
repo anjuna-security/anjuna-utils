@@ -11,7 +11,7 @@ This template allows you to deploy an Azure Confidential Computing Ubuntu VM usi
 
 If you are new to Azure virtual machines, see:
 
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/).
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 - [Azure Linux Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/linux/)
 - [Azure Windows Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/windows/)
 - [Template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions)
