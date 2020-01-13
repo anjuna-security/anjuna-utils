@@ -40,6 +40,8 @@ int main() {
     }
     
     printf("SGX is supported on this CPU\n");
+    printf("Flexible Launch Control supported: %d \n", ((ecx >> 30) & 0x1));
+    
     printf("\nCPUID Leaf 12H, Sub-Leaf 0 of Intel SGX Capabilities (EAX=12H, ECX=0)\n");
     eax = 0x12;
     ecx = 0;
@@ -56,15 +58,15 @@ int main() {
     printf("SGX ENCLS instruction supported: %d\n", (eax >> 6) & 0x1);
     printf("MISCSELECT.EXINFO supported: %d\n", ebx & 0x1);
     unsigned int size_power = edx & 0xFF;
-    printf("MaxEnclaveSize in 32-bit mode: 0x%x (%lu MB)\n", size_power, 1UL << (size_power - 20));
+    printf("MaxEnclaveSize in 32-bit mode: 0x%X (%lu MB)\n", size_power, 1UL << (size_power - 20));
     size_power = (edx >> 8) & 0xFF;
-    printf("MaxEnclaveSize in 64-bit mode: 0x%x (%lu MB)\n", size_power, 1UL << (size_power - 20));
+    printf("MaxEnclaveSize in 64-bit mode: 0x%X (%lu MB)\n", size_power, 1UL << (size_power - 20));
 
     printf("\nCPUID Leaf 12H, Sub-Leaf 1 of Intel SGX Capabilities (EAX=12H,ECX=1)\n");
     eax = 0x12;
     ecx = 1;
     native_cpuid(&eax, &ebx, &ecx, &edx);
-    printf("SECS.ATTRIBUTES valid bit fields: 0x%08x%08x%08x%08x\n", edx, ecx, ebx, eax);
+    printf("SECS.ATTRIBUTES valid bit fields: 0x%08X%08X%08X%08X\n", edx, ecx, ebx, eax);
 
     
     int sub_leaf_valid = 1;
