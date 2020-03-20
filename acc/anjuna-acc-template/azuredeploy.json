@@ -9,16 +9,16 @@
       }
     },
     "authenticationType": {
-	  "type": "string",
-	  "defaultValue": "sshPublicKey",
-	  "allowedValues": [
-	    "sshPublicKey",
-		"password"
-	  ],
-	  "metadata": {
-	    "description": "Type of authentication to use for logging into the virtual machine. SSH key is recommended."
-	  }
-	},
+      "type": "string",
+      "defaultValue": "sshPublicKey",
+      "allowedValues": [
+        "sshPublicKey",
+        "password"
+      ],
+      "metadata": {
+        "description": "Type of authentication to use for logging into the virtual machine. SSH key is recommended."
+      }
+    },
     "sshCredentials": {
       "type": "securestring",
       "metadata": {
@@ -27,9 +27,9 @@
     },
     "ubuntuOSVersion": {
       "type": "string",
-      "defaultValue": "18.04-LTS",
+      "defaultValue": "18_04-lts-gen2",
       "allowedValues": [
-        "18.04-LTS"
+        "18_04-lts-gen2"
       ],
       "metadata": {
         "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
@@ -38,6 +38,16 @@
     "vmName": {
       "type": "string",
       "defaultValue": "Anjuna-ACC-VM"
+    },
+    "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_DC4s_v2",
+      "allowedValues": [
+        "Standard_DC1s_v2",
+        "Standard_DC2s_v2",
+        "Standard_DC4s_v2",
+        "Standard_DC8_v2"
+      ]
     }
   },
   "variables": {
@@ -52,8 +62,8 @@
     "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
     "vmName": "[parameters('vmName')]",
-    "vmSize": "Standard_DC4s",
-	"location": "[resourceGroup().location]",
+    "vmSize": "[parameters('vmSize')]",
+    "location": "[resourceGroup().location]",
     "virtualNetworkName": "MyVNET",
     "linuxConfiguration": {
       "disablePasswordAuthentication": "[not(equals(parameters('authenticationType'), 'password'))]",
@@ -152,7 +162,7 @@
         "osProfile": {
           "computerName": "[variables('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
-		  "adminPassword": "[parameters('sshCredentials')]",
+          "adminPassword": "[parameters('sshCredentials')]",
           "linuxConfiguration": "[if(equals(parameters('authenticationType'),'password'), json('null'), variables('linuxConfiguration'))]"
         },
         "storageProfile": {
