@@ -1,4 +1,4 @@
-sudo amazon-linux-extras install aws-nitro-enclaves-cli
+sudo amazon-linux-extras install aws-nitro-enclaves-cli -y
 sudo yum install aws-nitro-enclaves-cli-devel -y
 sudo usermod -aG ne $USER
 sudo usermod -aG docker $USER
